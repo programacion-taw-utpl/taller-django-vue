@@ -140,7 +140,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.1/howto/static-files/
 
-STATIC_URL = 'static/'
+if DEBUG:
+    STATIC_URL = "/static/"
+else:
+    STATIC_URL = "/taller/static/"
+
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 
@@ -171,6 +175,7 @@ STORAGES = {
 }
 
 if not DEBUG:
+    FORCE_SCRIPT_NAME = "/taller"
     SECURE_PROXY_SSL_HEADER = (
         "HTTP_X_FORWARDED_PROTO",
         "https"
@@ -182,3 +187,6 @@ if not DEBUG:
     CSRF_TRUSTED_ORIGINS = [
         "https://167.99.4.189"
     ]
+
+SESSION_COOKIE_NAME = "taller_sessionid"
+CSRF_COOKIE_NAME = "taller_csrftoken"
