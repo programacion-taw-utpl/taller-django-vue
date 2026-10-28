@@ -37,7 +37,7 @@ onMounted(() => {
 
 <template>
   <main>
-    <h1>Gestión de proyectos académicos</h1>
+    <h1>Gestión de proyectos académicos - taller</h1>
 
     <p>
       Aplicación desarrollada con Django REST Framework y Vue 3.
